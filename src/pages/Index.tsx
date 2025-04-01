@@ -10,6 +10,7 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import WelcomePopup from "@/components/WelcomePopup";
 
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
       <Contact />
       <Footer />
       <WhatsAppWidget />
+      <WelcomePopup />
     </div>
   );
 };

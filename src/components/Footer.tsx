@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="mt-8 pt-8 border-t border-white/10 flex flex-col items-center">
           <div className="flex space-x-4 mb-6">
             <a
-              href="https://linkedin.com/in/chanice-wangui"
+              href="https://www.linkedin.com/in/chanicewangui"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon bg-white/10 hover:bg-warmPink"
@@ -60,7 +60,7 @@ const Footer = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="https://www.upwork.com/freelancers/chanicewangui"
+              href="https://www.upwork.com/freelancers/~01ff4264e0bbd64526?companyReference=1728677673260314625&mp_source=share"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon bg-white/10 hover:bg-warmPink"

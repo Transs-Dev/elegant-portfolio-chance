@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Mail, Phone, Send, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+import { Mail, Phone, Send, Linkedin } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,26 +29,31 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
+    // Format the message for WhatsApp
+    const whatsappMessage = `Hello Chanice, my name is ${formData.name}. Email: ${formData.email}. ${formData.message}`;
+    
+    // Redirect to WhatsApp with the message
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    window.open(`https://wa.me/971508934734?text=${encodedMessage}`, '_blank');
+
+    // Show success message
+    setIsSubmitting(false);
+    setSubmitStatus({
+      success: true,
+      message: "Redirecting you to WhatsApp to continue the conversation!",
+    });
+
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+    // Clear success message after 5 seconds
     setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus({
-        success: true,
-        message: "Your message has been sent. I'll get back to you soon!",
-      });
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
-
-      // Clear success message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus({});
-      }, 5000);
-    }, 1500);
+      setSubmitStatus({});
+    }, 5000);
   };
 
   return (
@@ -175,7 +180,7 @@ const Contact = () => {
                   <h4 className="font-medium mb-4">Connect With Me</h4>
                   <div className="flex space-x-4">
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/chanicewangui"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-icon"
@@ -184,31 +189,13 @@ const Contact = () => {
                       <Linkedin size={20} />
                     </a>
                     <a
-                      href="https://twitter.com"
+                      href="https://www.upwork.com/freelancers/~01ff4264e0bbd64526?companyReference=1728677673260314625&mp_source=share"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-icon"
-                      aria-label="Twitter"
+                      aria-label="Upwork"
                     >
-                      <Twitter size={20} />
-                    </a>
-                    <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon"
-                      aria-label="Instagram"
-                    >
-                      <Instagram size={20} />
-                    </a>
-                    <a
-                      href="https://facebook.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon"
-                      aria-label="Facebook"
-                    >
-                      <Facebook size={20} />
+                      <Linkedin size={20} />
                     </a>
                   </div>
                 </div>

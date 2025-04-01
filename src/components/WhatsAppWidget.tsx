@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, MessageCircle } from "lucide-react";
 
 interface WhatsAppService {
@@ -10,6 +10,17 @@ interface WhatsAppService {
 
 const WhatsAppWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDancing, setIsDancing] = useState(false);
+
+  // Set dancing animation interval
+  useEffect(() => {
+    const dancingInterval = setInterval(() => {
+      setIsDancing(true);
+      setTimeout(() => setIsDancing(false), 2000);
+    }, 8000);
+    
+    return () => clearInterval(dancingInterval);
+  }, []);
 
   const services: WhatsAppService[] = [
     {
@@ -61,7 +72,7 @@ const WhatsAppWidget = () => {
   return (
     <>
       <div 
-        className="whatsapp-floating-button"
+        className={`whatsapp-floating-button ${isDancing ? 'dancing' : ''}`}
         onClick={toggleWidget}
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
