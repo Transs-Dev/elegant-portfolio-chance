@@ -87,7 +87,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center w-full">
             <p>© {currentYear} Chanice Wangui. All rights reserved.</p>
             <p className="mt-2 md:mt-0 flex items-center gap-1">
-              Design by OMAR <Heart size={16} className="text-warmPink fill-warmPink" />
+              Design by OMAR  />
             </p>
           </div>
         </div>
