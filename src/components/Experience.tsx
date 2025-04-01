@@ -17,6 +17,24 @@ const Experience = () => {
   const [experiences, setExperiences] = useState<ExperienceItem[]>([
     {
       id: 1,
+      title: "Freelance Virtual Assistant",
+      company: "Self-employed",
+      location: "Dubai, UAE",
+      period: "Jan 2024 – Present",
+      description: "Providing comprehensive virtual assistance services to clients globally, specializing in administrative support, project management, and customer service.",
+      responsibilities: [
+        "Manage email communications and calendar scheduling for multiple clients",
+        "Coordinate project timelines and deliverables using project management tools",
+        "Conduct online research and data entry for various business needs",
+        "Create and maintain documentation and spreadsheets",
+        "Assist with social media management and content scheduling",
+        "Provide travel arrangement and booking services",
+        "Handle customer inquiries and support tickets"
+      ],
+      isExpanded: false
+    },
+    {
+      id: 2,
       title: "Shift Manager",
       company: "Country House Gardens",
       location: "Nairobi, Kenya",
@@ -32,7 +50,7 @@ const Experience = () => {
       isExpanded: false
     },
     {
-      id: 2,
+      id: 3,
       title: "Client Service Executive",
       company: "Zamara Actuaries and Consultants",
       location: "Nairobi, Kenya",
@@ -78,7 +96,7 @@ const Experience = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-bold">{exp.title}</h3>
-                      <p className="text-primary font-medium">{exp.company} - {exp.location}</p>
+                      <p className="text-warmPink font-medium">{exp.company} - {exp.location}</p>
                     </div>
                     <p className="text-sm text-muted-foreground bg-pastel-blue/20 px-3 py-1 rounded-full mt-2 sm:mt-0 w-fit">
                       {exp.period}
@@ -89,14 +107,14 @@ const Experience = () => {
                   
                   <button
                     onClick={() => toggleExpand(exp.id)}
-                    className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                    className="flex items-center gap-2 text-lightBlue hover:text-lightBlue/80 transition-colors"
                   >
                     {exp.isExpanded ? "Hide Details" : "View Details"}
                     {exp.isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </button>
                   
                   {exp.isExpanded && (
-                    <div className="mt-4 pl-4 border-l-2 border-pastel-blue animate-fade-in">
+                    <div className="mt-4 pl-4 border-l-2 border-pastel-pink animate-fade-in">
                       <h4 className="font-medium mb-2">Key Responsibilities:</h4>
                       <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                         {exp.responsibilities.map((item, i) => (

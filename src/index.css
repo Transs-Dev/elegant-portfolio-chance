@@ -14,11 +14,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 210 80% 60%;
+    --primary: 340 80% 70%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 340 80% 85%;
-    --secondary-foreground: 340 50% 30%;
+    --secondary: 211 80% 75%;
+    --secondary-foreground: 211 50% 30%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
@@ -49,15 +49,15 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:scale-105 transition-transform duration-300;
   }
 
   .btn-secondary {
-    @apply inline-flex h-11 items-center justify-center rounded-md bg-secondary px-8 text-sm font-medium text-secondary-foreground ring-offset-background transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex h-11 items-center justify-center rounded-md bg-secondary px-8 text-sm font-medium text-secondary-foreground ring-offset-background transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:scale-105 transition-transform duration-300;
   }
 
   .btn-outline {
-    @apply inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium text-foreground ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium text-foreground ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:scale-105 transition-transform duration-300;
   }
 
   .section-heading {
@@ -74,6 +74,18 @@
 
   .social-icon {
     @apply h-10 w-10 flex items-center justify-center rounded-full bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300;
+  }
+  
+  .typewriter {
+    @apply overflow-hidden whitespace-nowrap animate-typewriter border-r-2 border-foreground animate-blink;
+  }
+  
+  .tool-card {
+    @apply flex flex-col items-center p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-border cursor-pointer;
+  }
+  
+  .floating {
+    @apply animate-float;
   }
 }
 
@@ -106,4 +118,19 @@
   background-color: hsl(var(--border));
   left: 0;
   top: 50%;
+}
+
+.whatsapp-floating-button {
+  @apply fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 transition-colors cursor-pointer;
+}
+
+.whatsapp-widget {
+  @apply fixed bottom-24 right-6 z-50 bg-white rounded-lg shadow-xl border border-gray-200 w-80 overflow-hidden transition-all duration-300 ease-in-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+.whatsapp-widget.open {
+  max-height: 400px;
+  opacity: 1;
 }

@@ -1,7 +1,15 @@
 
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Star } from "lucide-react";
 
 const About = () => {
+  const strengths = [
+    "Detail-oriented with exceptional organizational skills",
+    "Strong communication and interpersonal abilities",
+    "Adaptable and quick to learn new tools and processes",
+    "Excellent time management and prioritization skills",
+    "Proactive problem solver with critical thinking abilities"
+  ];
+
   return (
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -21,26 +29,38 @@ const About = () => {
               to provide comprehensive support tailored to your specific needs.
             </p>
 
+            <div className="mb-8">
+              <h3 className="text-xl font-bold mb-4 text-warmPink">My Strengths</h3>
+              <ul className="space-y-3">
+                {strengths.map((strength, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <Star size={20} className="text-lightBlue min-w-5 mt-1" />
+                    <span className="text-foreground">{strength}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-center gap-3">
-                <div className="bg-pastel-blue p-2 rounded-full">
-                  <Mail className="text-primary" size={20} />
+                <div className="bg-pastel-pink p-2 rounded-full">
+                  <Mail className="text-warmPink" size={20} />
                 </div>
                 <div>
                   <h3 className="text-sm font-medium text-muted-foreground">Email</h3>
-                  <a href="mailto:wanguichanice143@gmail.com" className="text-foreground hover:text-primary">
+                  <a href="mailto:wanguichanice143@gmail.com" className="text-foreground hover:text-warmPink">
                     wanguichanice143@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="bg-pastel-green p-2 rounded-full">
-                  <Phone className="text-primary" size={20} />
+                <div className="bg-pastel-blue p-2 rounded-full">
+                  <Phone className="text-lightBlue" size={20} />
                 </div>
                 <div>
                   <h3 className="text-sm font-medium text-muted-foreground">Phone</h3>
-                  <a href="tel:+971508934734" className="text-foreground hover:text-primary">
+                  <a href="tel:+971508934734" className="text-foreground hover:text-lightBlue">
                     +971508934734
                   </a>
                 </div>
@@ -58,7 +78,7 @@ const About = () => {
 
               <div className="flex items-center gap-3">
                 <div className="bg-pastel-pink p-2 rounded-full">
-                  <Clock className="text-primary" size={20} />
+                  <Clock className="text-warmPink" size={20} />
                 </div>
                 <div>
                   <h3 className="text-sm font-medium text-muted-foreground">Availability</h3>
@@ -76,7 +96,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-pastel-pink to-pastel-blue opacity-30 rounded-lg transform rotate-3"></div>
               <div className="relative bg-white p-4 rounded-lg shadow-lg border border-border transform -rotate-3">
                 <img
-                  src="/placeholder.svg"
+                  src="/about.jpg"
                   alt="Chanice Wangui"
                   className="w-full h-auto rounded-md"
                 />
